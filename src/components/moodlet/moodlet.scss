@@ -103,7 +103,7 @@ $moodlet-colors: (
   }
 }
 
-// Generate moodlet classes for each color variant
+// Generate moodlet classes for each color variant dynamically
 @each $name, $colors in $moodlet-colors {
   $default: list.nth($colors, 1);
   $hover: list.nth($colors, 2);

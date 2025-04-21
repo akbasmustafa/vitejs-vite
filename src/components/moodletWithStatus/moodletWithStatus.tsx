@@ -8,6 +8,7 @@ enum ButtonStatus {
   COMPLETED = 'COMPLETED',
 }
 
+// Status map for each left-right click actions
 const StatusMap: Record<
   ButtonStatus,
   { left: ButtonStatus | undefined; right: ButtonStatus | undefined }
@@ -30,6 +31,7 @@ const StatusMap: Record<
   },
 };
 
+// Status map to variant
 const StatusToVariantMap: Record<ButtonStatus, MoodletVariant> = {
   [ButtonStatus.NOT_REQUIRED]: 'Disabled',
   [ButtonStatus.REQUIRED]: 'Inactive',
@@ -37,6 +39,7 @@ const StatusToVariantMap: Record<ButtonStatus, MoodletVariant> = {
   [ButtonStatus.COMPLETED]: 'Green',
 };
 
+// Higher order component to add status management to the Moodlet component.
 const withStatus = <
   P extends {
     variant?: MoodletVariant;

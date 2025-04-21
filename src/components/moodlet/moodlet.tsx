@@ -20,7 +20,8 @@ export const MoodletVariantList = [
 
 export type MoodletVariant = (typeof MoodletVariantList)[number];
 
-export const moodletVariants: Record<
+// Variants map to styles.
+const moodletVariants: Record<
   MoodletVariant,
   { active: string; disabled: string }
 > = {
@@ -86,6 +87,8 @@ export const moodletVariants: Record<
   },
 };
 
+// Uses button element for accessibility. Extends ButtonHTMLAttributes to support customization.
+// Moodlet component follow design guidelines in Figma and separate other features on top of it like status flow.
 interface MoodletProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: MoodletVariant;
   children: React.ReactNode;
@@ -105,7 +108,6 @@ const Moodlet = ({
   ...props
 }: MoodletProps) => {
   const handleClick = (e: React.MouseEvent) => {
-    console.log('handleClick', e);
     e.preventDefault();
     if (e.button === 2) {
       onClickButton?.('right');
