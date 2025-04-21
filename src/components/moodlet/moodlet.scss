@@ -61,18 +61,17 @@ $moodlet-colors: (
 
 .moodlet-base {
   box-sizing: border-box;
-  height: 32px;
-  min-width: 32px;
+  height: 14px;
+  min-width: 14px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 0 3px;
+  padding: 0 1px;
   gap: 4px;
-  border-radius: 16px;
-  font-weight: 500;
-  font-size: 16px;
-  border: 2px solid transparent;
+  border-radius: 7px;
+  font-size: 8px;
+  border: 1px solid transparent;
   cursor: pointer;
   color: white;
   transition: all 0.3s ease;

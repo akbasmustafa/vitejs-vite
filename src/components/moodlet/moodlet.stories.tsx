@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Moodlet, { MoodletVariantList } from './moodlet';
 
@@ -6,8 +5,8 @@ const Icon = () => (
   <svg
     aria-hidden='true'
     xmlns='http://www.w3.org/2000/svg'
-    width='24'
-    height='24'
+    width='10'
+    height='10'
     fill='currentColor'
     viewBox='0 0 24 24' // Keep this if you want the icon to scale proportionally
   >
@@ -22,19 +21,19 @@ const Icon = () => (
 const Icon3Dot = () => (
   <svg
     aria-hidden='true'
-    width='20'
-    height='20'
+    width='10'
+    height='10'
     viewBox='0 0 10 24'
     fill='currentColor'
   >
-    <circle cx='2' cy='12' r='1' />
-    <circle cx='5' cy='12' r='1' />
-    <circle cx='8' cy='12' r='1' />
+    <circle cx='0' cy='12' r='2' />
+    <circle cx='5' cy='12' r='2' />
+    <circle cx='10' cy='12' r='2' />
   </svg>
 );
 
 const meta: Meta<typeof Moodlet> = {
-  title: 'Example/Moodlet',
+  title: 'Components/Moodlet',
   component: Moodlet,
   parameters: {
     layout: 'centered',
@@ -61,10 +60,10 @@ const moodletContents = [
 
 export const AllVariants: Story = {
   render: () => (
-    <div className='flex flex-col gap-4 w-full'>
+    <div className='flex flex-col gap-1 w-full'>
       {MoodletVariantList.map((variant, index) => (
         <div key={`${variant}-${index}`}>
-          <h5>{variant}</h5>
+          <p className="text-xs">{variant}</p>
           <div className='flex flex-row gap-2 justify-center items-center'>
             {moodletContents.map((content, index) => (
               <Moodlet

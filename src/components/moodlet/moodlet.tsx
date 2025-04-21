@@ -1,4 +1,3 @@
-import React from 'react';
 import './moodlet.scss';
 
 export const MoodletVariantList = [
@@ -129,7 +128,7 @@ const Moodlet = ({
       {...props}
     >
       {
-        <div className='flex flex-row gap-1 justify-center items-center text-base h-5'>
+        <div className='flex flex-row gap-1 justify-center items-center'>
           {iconLeft}
           {children}
           {iconRight}
