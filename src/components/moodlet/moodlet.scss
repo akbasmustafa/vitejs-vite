@@ -1,0 +1,114 @@
+@use 'sass:list';
+@use 'sass:map';
+
+// Define color map for moodlet variants default, hover, disabled, content color
+$moodlet-colors: (
+  'primary': (
+    #824dff,
+    #6d0ef1,
+    #e2deed,
+    #ffffff,
+  ),
+  'inactive': (
+    #998dbf,
+    #6e5ca3,
+    #d3cee3,
+    #ffffff,
+  ),
+  'secondary': (
+    #09a7aa,
+    #007780,
+    #ccffe9,
+    #ffffff,
+  ),
+  'blue': (
+    #0b94d8,
+    #005580,
+    #b2e5ff,
+    #ffffff,
+  ),
+  'green': (
+    #319b31,
+    #247524,
+    #d6f6d6,
+    #ffffff,
+  ),
+  'red': (
+    #d22d5c,
+    #a82443,
+    #f6d6e4,
+    #ffffff,
+  ),
+  'yellow': (
+    #ffd116,
+    #c39100,
+    #feffcf,
+    #000000,
+  ),
+  'placeholder': (
+    #824dff,
+    #6d0ef1,
+    #bdb2ff,
+    #ffffff,
+  ),
+  'disabled': (
+    #998dbf,
+    #6e5ca3,
+    #e2deed,
+    #6e5ca3,
+  ),
+);
+
+.moodlet-base {
+  box-sizing: border-box;
+  height: 32px;
+  min-width: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  gap: 4px;
+  border-radius: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+// Mixin to generate moodlet classes
+@mixin moodlet-variant($name, $default, $hover, $disabled, $content-color) {
+  .moodlet-#{$name} {
+    background-color: $default;
+    border-color: $default;
+    color: $content-color;
+
+    &:hover {
+      background-color: $hover;
+      border-color: $hover;
+    }
+    & > svg {
+      fill: $content-color;
+    }
+
+    &.disabled {
+      background-color: $disabled;
+      border-color: $default;
+      color: $default;
+      & > svg {
+        fill: $default;
+      }
+    }
+  }
+}
+
+// Generate moodlet classes for each color variant
+@each $name, $colors in $moodlet-colors {
+  $default: list.nth($colors, 1);
+  $hover: list.nth($colors, 2);
+  $disabled: list.nth($colors, 3);
+  $content-color: list.nth($colors, 4);
+  @include moodlet-variant($name, $default, $hover, $disabled, $content-color);
+}
